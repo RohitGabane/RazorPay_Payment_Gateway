@@ -1,0 +1,97 @@
+﻿   @model RegistrationModel
+@{
+    ViewData["Title"] = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    /* Add your custom styles here */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #F4F4F4;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    form {
+        margin: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .row {
+        margin-bottom: 15px;
+    }
+
+    strong {
+        color: #333;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #45A049;
+        }
+</style>
+<h1>Registration</h1>
+<div>
+    <form asp-action="Payment">
+        <div class="row">
+            <div class="offset-1 col-2">
+                <strong>Name</strong>
+            </div>
+            <div class="col-4">
+                <input type="text" asp-for="Name" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-1 col-2">
+                <strong>Mobile</strong>
+            </div>
+            <div class="col-4">
+                <input type="text" asp-for="Mobile" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-1 col-2">
+                <strong>Email</strong>
+            </div>
+            <div class="col-4">
+                <input type="text" asp-for="Email" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="offset-1 col-2">
+                <strong>Amount</strong>
+            </div>
+            <div class="col-4">
+                ₹ @Model.Amount.ToString("0.00")
+                <input type="hidden" asp-for="Amount" value="@Model.Amount" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-right">
+                <button type="submit" class="btn btn-outline-primary">Register</button>
+            </div>
+        </div>
+    </form>
+</div>
